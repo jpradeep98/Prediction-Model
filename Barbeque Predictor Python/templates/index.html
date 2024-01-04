@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Barbecue Time Suggestion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Barbecue Time Suggestion</h1>
+        <form action="/suggest_time" method="post">
+			<label for="city">Enter City Name:</label>
+			<input type="text" name="city" required>
+            <!-- <label for="temperature">Enter Temperature (°C):</label>
+            <input type="number" name="temperature" required>
+            <label for="weather">Weather Condition:</label>
+            <input type="text" name="weather" required> -->
+            <button type="submit">Get Suggestion</button>
+        </form>
+        {% if suggestion %}
+			<p class="suggestion">Weather at {{ city }} is {{  citytemperature }} and it is {{ cityweather }}</p>
+            <p class="suggestion">I would say," {{ suggestion }} "</p>
+        {% endif %}
+    </div>
+</body>
+</html>
